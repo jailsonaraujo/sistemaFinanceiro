@@ -1,0 +1,124 @@
+/* reset config */
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* container principal */
+.container-principal{
+  width: 900px;
+  height: 100vh;
+  border: solid 1px;
+  margin: 0 auto;
+}
+
+/* section painel de valores */
+.painel-saldos-despesas{
+  border: solid 1px;
+  background-color: #018476;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1rem 0;
+  color: #fff;
+}
+.painel{
+  width: 300px;
+  padding: 2rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.saldos{
+  background-color: #59b659;
+}
+.despesas{
+  background-color: #d6534b;
+}
+
+/* section form despesas e receitas */
+.tansacoes-despesas-receitas{
+  width: 100%;
+  height: auto;
+  padding: 1rem 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  /* border: solid 1px; */
+}
+.form-receitas, .form-despesas{
+  width: 400px;
+  height: auto;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  border-left: #59b659 solid 5px;
+}
+.form-receitas{
+  border-left: #59b659 solid 3px;
+}
+ .form-despesas{
+  border-left: #d6534b solid 3px;
+}
+
+.form-receitas form, .form-despesas form{
+  width: 90%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.full-box{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: .5rem;
+  margin-top: 1rem;
+}
+.full-box input{
+  padding: .3rem .5rem;
+}
+.small-box{
+  width: 45%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: .5rem;
+}
+.small-box input{
+  padding: .3rem .5rem;
+}
+.btnSalvar, .btnSalvarDespesa{
+  width: 100%;
+  height: auto;
+}
+.btnSalvar button{
+  width: 100%;
+  padding: .3rem .5rem;
+  margin: .5rem 0;
+}
+.btnSalvarDespesa button{
+  width: 100%;
+  padding: .3rem .5rem;
+  margin: .5rem 0;
+}
+
+/* Tabelas de dados */
+.tabelas-dados{
+  border: solid 1px;
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+}
+.table-receitas, .table-despesas{
+  width: 400px;
+  height: auto;
+  border-collapse: collapse;
+}
