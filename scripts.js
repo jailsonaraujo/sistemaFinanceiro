@@ -49,7 +49,7 @@ mostrarSaldoTotal()
 const getDadosDespesas=JSON.parse(localStorage.getItem('db_despesas'))??[];
 const btnSalvarDespesas=document.getElementById('btnSalvarDespesa');
 const totalDespesas=document.getElementById('total-despesas');
-const despesasAtual=document.querySelector('.despesas');
+const despesasAtual=document.querySelector('#despesasAtual');
 var somaTotalDespesas;
 
 const cadastrardadosDespesas=()=>{
@@ -95,7 +95,7 @@ valorTotalDespesas()
 
 
 // função de descontar valores atual das receitas
-const saldoAtual=document.querySelector('.saldos')
+const saldoAtual=document.querySelector('#saldoAtual')
 
 function valorAtualReceitas(){
   const desconto=parseFloat(somaSaldoTotal)-parseFloat(somaTotalDespesas)
