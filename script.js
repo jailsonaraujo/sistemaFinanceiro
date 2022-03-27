@@ -22,11 +22,13 @@ document.getElementById('btnSalvarReceita').addEventListener('click', ()=>{
 const mostrarSaldo=()=>{
   const db_cadastro=JSON.parse(localStorage.getItem('db_receitas'));
   const painelSaldo=document.querySelector('.saldos');
+  const totalDespesas=document.getElementById('total-receitas')
   let soma=0;
   db_cadastro.forEach((valor)=>{
     soma+=parseInt(valor.valor)
   })
   painelSaldo.innerHTML='R$ '+soma;
+  totalDespesas.innerHTML='R$ '+soma;
 }
 mostrarSaldo()
 
@@ -44,8 +46,6 @@ const mostrarDados=()=>{
     tr.innerHTML='<tr><td>'+dados.data+'</td><td>'+dados.descricao+'</td><td>'+dados.valor+'</td></tr>'
     tbody.appendChild(tr)
   })
-
-  
 }
 mostrarDados()
 
@@ -71,6 +71,11 @@ document.getElementById('btnSalvarDespesa').addEventListener('click', ()=>{
 })
 
 // mostrar saldo no painel
+const descontarSaldoAtual=()=>{
+  const saldoAtual=document.querySelector('.saldos').innerHTML;
+
+}
+
 const mostrarDespesa=()=>{
   const db_cadastro=JSON.parse(localStorage.getItem('db_despesa'));
   const painelDespesas=document.querySelector('.despesas');
@@ -79,6 +84,7 @@ const mostrarDespesa=()=>{
     soma+=parseInt(valor.valor)
   })
   painelDespesas.innerHTML='R$ '+soma;
+  console.log(soma)
 }
 mostrarDespesa()
 

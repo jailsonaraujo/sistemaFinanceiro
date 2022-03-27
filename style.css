@@ -44,9 +44,17 @@
   height: auto;
   padding: 1rem 1rem;
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   /* border: solid 1px; */
+}
+.receitas-total, .despesas-total{
+  width: 400px;
+  height: auto;
+  border: solid 1px;
+  padding: .5rem 0;
+  display: grid;
+  place-items: center;
 }
 .form-receitas, .form-despesas{
   width: 400px;
@@ -110,7 +118,6 @@
 
 /* Tabelas de dados */
 .tabelas-dados{
-  border: solid 1px;
   padding: 1rem 0;
   display: flex;
   align-items: center;
