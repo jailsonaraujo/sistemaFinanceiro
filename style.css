@@ -141,4 +141,13 @@
   width: 400px;
   height: auto;
   border-collapse: collapse;
+  border: solid 1px;
+}
+.table-despesas tr th{
+  border: solid 1px;
+  background-color: #d6534b;
+}
+.table-receitas tr th{
+  border: solid 1px;
+  background-color: #64b4f5;
 }

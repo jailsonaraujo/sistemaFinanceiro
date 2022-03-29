@@ -26,9 +26,12 @@ const exibirDadosTabela=()=>{
   const elementTr=document.querySelectorAll('.table-receitas>tbody>tr');
   elementTr.forEach(linhaTr=>linhaTr.parentNode.removeChild(linhaTr))
 
-  getDadosreceitas.forEach((dadosReceitas)=>{
-    const tr=document.createElement('tr')
-    tr.innerHTML='<td>'+dadosReceitas.descricao+'</td><td>'+dadosReceitas.data+'</td><td>'+dadosReceitas.valor+'</td>'
+  getDadosreceitas.forEach((dadosReceitas, keyReceitas)=>{
+    const tr=document.createElement('tr');
+
+    tr.innerHTML='<td>'+dadosReceitas.descricao+'</td><td>'+dadosReceitas.data+'</td><td>'+dadosReceitas.valor+'</td><td><button class="btnExcluir">Excluir</button></td>'
+    tr.style.color='#63b4f4';
+    
     document.querySelector('.table-receitas>tbody').appendChild(tr)
   })
 }
@@ -76,6 +79,7 @@ const exibirDadosDespesas=()=>{
   getDadosDespesas.forEach((dadosDespesas)=>{
     const trDespesas=document.createElement('tr');
     trDespesas.innerHTML='<td>'+dadosDespesas.descricao+'</td><td>'+dadosDespesas.data+'</td><td>'+dadosDespesas.valor+'</td>'
+    trDespesas.style.color='#f00'
     document.querySelector('.table-despesas>tbody').appendChild(trDespesas)
   })
 }
