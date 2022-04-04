@@ -29,7 +29,9 @@ const exibirDadosTabela=()=>{
   getDadosreceitas.forEach((dadosReceitas, keyReceitas)=>{
     const tr=document.createElement('tr');
 
-    tr.innerHTML='<td>'+dadosReceitas.descricao+'</td><td>'+dadosReceitas.data+'</td><td>'+dadosReceitas.valor+'</td><td><button class="btnExcluir">Excluir</button></td>'
+    tr.innerHTML='<td>'+dadosReceitas.descricao+'</td><td>'+dadosReceitas.data+'</td><td>'+dadosReceitas.valor+
+    '</td><td><button class="btnExcluir" id="excluir-'+keyReceitas+'">Excluir</button></td>'+
+    '<td><button class="btnEditar" id="editar-'+keyReceitas+'">Editar</button></td>'
     tr.style.color='#63b4f4';
     
     document.querySelector('.table-receitas>tbody').appendChild(tr)
@@ -47,6 +49,30 @@ const mostrarSaldoTotal=()=>{
 }
 mostrarSaldoTotal()
 
+// função excluir dados
+const editarDados=(index)=>{
+  const getdados=getDadosreceitas[index]
+  document.getElementById('descricao').value=getdados.descricao
+  document.getElementById('valor').value=getdados.valor
+  document.getElementById('data').value=getdados.data
+  document.getElementById('descricao').dataset.index=getdados.index
+}
+
+const ecluirReceitas=(e)=>{
+  if(e.target.type=='submit'){
+    const [acao,index] = e.target.id.split('-')
+    
+    if(acao=='editar'){
+      editarDados(index)
+    }else{
+      const excDados=getDadosreceitas.splice(index,1)
+
+      localStorage.setItem('db_receitas',JSON.stringify(getDadosreceitas));
+      exibirDadosTabela()
+    }
+  }
+}
+document.querySelector('.table-receitas>tbody').addEventListener('click',ecluirReceitas)
 // SCRIPTS DESPESAS *****************************************************************************
 // variaveis globais receitas
 const getDadosDespesas=JSON.parse(localStorage.getItem('db_despesas'))??[];
