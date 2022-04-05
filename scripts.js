@@ -102,9 +102,12 @@ const exibirDadosDespesas=()=>{
   const trLinDespesas=document.querySelectorAll('.table-despesas>tbody tr');
   trLinDespesas.forEach(trLinDesp=>trLinDesp.parentNode.removeChild(trLinDesp));
 
-  getDadosDespesas.forEach((dadosDespesas)=>{
+  getDadosDespesas.forEach((dadosDespesas, keyDespesas)=>{
     const trDespesas=document.createElement('tr');
-    trDespesas.innerHTML='<td>'+dadosDespesas.descricao+'</td><td>'+dadosDespesas.data+'</td><td>'+dadosDespesas.valor+'</td>'
+    trDespesas.innerHTML='<td>'+dadosDespesas.descricao+'</td>'+
+    '<td>'+dadosDespesas.data+'</td><td>'+dadosDespesas.valor+
+    '</td><td><button class="btnExcluirDespesas" id="excluir-'+keyDespesas+'">Excluir</td>'
+
     trDespesas.style.color='#f00'
     document.querySelector('.table-despesas>tbody').appendChild(trDespesas)
   })
@@ -132,3 +135,18 @@ function valorAtualReceitas(){
   saldoAtual.innerHTML='R$ '+desconto.toFixed(2)
 }
 valorAtualReceitas()
+
+// excluir despesas
+const excluirDespesas=(e)=>{
+  if(e.target.type=='submit'){
+    const [acao, index]=e.target.id.split('-');
+    if(acao=='excluir'){
+      const getDespesas=getDadosDespesas.splice(index,1);
+
+      localStorage.setItem('db_despesas',JSON.stringify(getDadosDespesas));
+      exibirDadosDespesas()
+    }
+  }
+  
+}
+document.querySelector('.table-despesas>tbody').addEventListener('click',excluirDespesas);
